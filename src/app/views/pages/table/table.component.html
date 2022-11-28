@@ -1,0 +1,36 @@
+<div>
+  <div>
+    <input class="search" placeholder="Buscar alumno" [formControl]="search">
+  </div>
+  <table class="table ">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Materia</th>
+        <th scope="col">Nota</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+       <tr *ngFor="let alumno of alumnos | search:filter">
+        <td>{{ alumno.nombre }}</td>
+        <td>{{ alumno.materia }}</td>
+        <td>
+          <div [ngClass]="{'green': alumno.nota >= 7, 'red' : alumno.nota <= 6}">
+            <p> {{ alumno.nota }}</p>
+          </div>
+        </td>
+        <td>
+          <div>
+            <div *ngIf=" alumno.aprobado ;else desaprobado">
+              <img style="height:50px; width:50px;" src="../../../../assets/media/icons/aprobado.png" alt="">
+            </div>
+            <ng-template #desaprobado>
+              <img style="height:50px; width:50px;" src="../../../../assets/media/icons/reject.png" alt="">
+            </ng-template>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
