@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchPipe } from './pipe/search.pipe';
 import { FormComponent } from './views/pages/form/form.component';
+import { AlumnosComponent } from './views/pages/alumnos/alumnos.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { FormComponent } from './views/pages/form/form.component';
     TableComponent,
     SearchPipe,
     FormComponent,
+    AlumnosComponent,
   ],
   imports: [
     BrowserModule,
