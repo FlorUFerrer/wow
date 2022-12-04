@@ -1,0 +1,43 @@
+
+<div>
+    <div class="container">
+        <form (keydown.enter)="$event.preventDefault()" [formGroup]="registerForm">
+            <div >
+                <p>Nombre</p>
+                <input type="text"  id="name"  formControlName="name" class="title" placeholder="Nombre" />
+                <div *ngIf="name?.invalid && (name?.dirty || name?.touched)"  class="alert alert-danger">
+                    <p>El nombre debe tener más de 3 caracteres</p>
+                </div>
+            </div>    
+            <div>
+                <p>Apellido</p>
+                <input type="text" formControlName="lastname" class="title" placeholder="Apellido" />
+                <div *ngIf="lastname?.invalid && (lastname?.dirty || lastname?.touched)"  class="alert alert-danger">
+                    <p>Debe escribir un apellido</p>
+                </div>
+            </div>
+            <div>
+                <p>DNI</p>
+                <input type="text" formControlName="dni" class="title" placeholder="DNI" />
+                <div *ngIf="dni?.invalid && (dni?.dirty || dni?.touched)"  class="alert alert-danger">
+                    <p>El dni debe tener mas de 8 caracteres</p>
+                </div>
+            </div>
+            <div>
+                <p>Materia</p>
+                <select formControlName="subject" >
+                    <option  *ngFor=" let subject of subjects" value={{subject}} >{{subject}}</option>
+                </select>
+            </div>
+            <div>
+                <p>Calificacion</p>
+                <input type="number" min="1" max="10" formControlName="calification" class="title" placeholder="Calificacion" />
+            </div>
+            <div>
+                <p>Descripcion</p>
+                <textarea formControlName="description"  rows="4" cols="20"></textarea>
+            </div>
+            <button type="submit" [disabled]="registerForm.invalid" (click)="miForm($event)">ENVIAR</button>
+        </form>
+    </div>
+  </div>
