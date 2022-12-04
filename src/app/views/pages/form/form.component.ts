@@ -19,7 +19,6 @@ export class FormComponent implements OnInit {
     description :  new FormControl(''),
   })
 
-  
   subjects : any = ["Matematica" , "Historia" ,"Literatura" , "Educación Física"]
   
   get name() { return this.registerForm.get('name')};
@@ -30,8 +29,7 @@ export class FormComponent implements OnInit {
     form.preventDefault();
     console.log(this.registerForm.value);
   }
-  
-  
+   
   
   ngOnInit(): void {
 
