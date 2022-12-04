@@ -3,8 +3,10 @@
 
 ## Consigna
 
->> Entregar un proyecto que dado un array de alumnos los muestre en forma de lista y aplique diferentes estilos según algunas condiciones
+>> Definir un componente que utilice Reactive Forms con su esquema de validaciones personalizadas representando en la vista los mensajes de error.
+
 
 ## Aspectos a incluir en el entregable:
->>Se espera la entrega de un proyecto configurado y funcional utilizando creación de componentes.
->>Recuerda hacer uso correcto de directivas (estructurales y de atributo) y pipes.
+>>Además de la funcionalidad solicitada, el proyecto debe incluir un diseño personalizado mediante CSS o la librería Bootstrap. 
+
+

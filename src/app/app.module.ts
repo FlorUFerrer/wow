@@ -12,6 +12,9 @@ import { MatTableModule } from '@angular/material/table';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchPipe } from './pipe/search.pipe';
+import { FormComponent } from './views/pages/form/form.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +23,7 @@ import { SearchPipe } from './pipe/search.pipe';
     ToolbarComponent,
     TableComponent,
     SearchPipe,
+    FormComponent,
   ],
   imports: [
     BrowserModule,
