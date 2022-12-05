@@ -3,7 +3,7 @@
     <div class="form-group pb-2">
       <label for="name">Nombre del alumno</label>
       <input type="text" class="form-control" id="name" formControlName="name">
-      <small class="text-danger" *ngIf="name?.invalid && (name?.touched && name?.dirty)">Error de ingreso de datos</small>
+      <small class="text-danger" *ngIf="name?.invalid && (name?.touched && name?.dirty)">El nombre debe tener mas de 3 caracteres.</small>
     </div>
     <div class="form-group pb-2">
       <label for="subject">Materia</label>
@@ -16,7 +16,7 @@
     <div class="form-group pb-2">
       <label for="calification">Nota</label>
       <input type="number" class="form-control" id="calification" formControlName="calification" min="1" max="10">
-      <small class="text-danger" *ngIf="calification?.invalid && (calification?.touched && calification?.dirty)">Error de ingreso de datos</small>
+      <small class="text-danger" *ngIf="calification?.invalid && (calification?.touched && calification?.dirty)">La nota debe ser entre 1 y 10</small>
     </div>
     <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary" (click)="submitForm($event)" >Enviar</button>
   </form>
