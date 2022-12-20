@@ -1,0 +1,62 @@
+ <div class="mat-elevation-z8 size">
+   <table mat-table [dataSource]="dataSource |choiceCustomer:filterClient" >
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="lastname">
+      <th mat-header-cell *matHeaderCellDef> Lastname </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastname}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="subject_id" >
+      <th mat-header-cell *matHeaderCellDef> Customer </th>
+      <td mat-cell *matCellDef="let element">
+        <div>
+            <p>{{(element.subject_name| async)}}</p>
+        </div>
+      </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="note">
+      <th mat-header-cell *matHeaderCellDef> Note </th>
+      <td mat-cell *matCellDef="let element">
+        <p *ngIf=" element.note === 'null'"></p>
+        <p *ngIf=" element.note != 'null'">{{element.note}}</p>
+      </td>
+    </ng-container>
+
+   <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element">
+        <div class="container-description">
+          <div *ngIf="element.description ;else notNote"  >
+            <app-target-description [description] = "element.description"></app-target-description>
+          </div>
+          <ng-template #notNote >
+            <div class="note-edit-off">
+              <img src="../../../../assets/media/icons/pencil.svg" alt="">
+            </div>
+          </ng-template>
+        </div>
+      </td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"
+    (click)="onRowClicked(row)"></tr>
+  </table>
+
+  <mat-paginator style=" background: #F2F2F2;" [pageSizeOptions]="[15,10]"
+                 showFirstLastButtons
+                 aria-label="Select page of gateways">
+
+  </mat-paginator>
+</div>
+
+

@@ -1,0 +1,123 @@
+.container{
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 17px;
+  .menu{
+    box-shadow: 0px 4px 4px rgba(1, 52, 113, 0.25);
+    background: #F2F2F2;
+    border-radius: 10px;
+    width: 273px;
+    display: flex;
+    flex-direction: column;
+    .border{
+      background: linear-gradient(271.22deg, #0E3B8B -2.82%, rgba(0, 215, 255, 0.88) 122.31%, rgba(0, 215, 255, 0.88) 122.31%), #FFFFFF;
+      border-radius: 10px 10px 0px 0px;
+      height: 14px;
+    }
+    .customer{
+      display: flex;
+      background: linear-gradient(0deg, rgba(1, 52, 113, 0.05), rgba(1, 52, 113, 0.05)), #FFFFFF;
+      box-shadow: 0px 4px 4px rgba(1, 52, 113, 0.25);
+      border-radius: 0px;
+      height: 56px;
+      justify-content: center;
+      p{
+        font-family: sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 27px;
+        color: #002C61;
+      }
+    }
+    .search-box{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      border-radius: 5px;
+      margin-top: 15px;
+      .lupe-box{
+        width: 30px;
+        height: 36px;
+        background: #002C61;
+        border-radius: 4px 0px 0px 4px;
+
+      .lupe{
+        position: relative;
+        top:12px;
+        left:8px;
+      }
+    }
+    .search{
+      border: 1px solid #002C61;
+      height: 32px;
+      font-family: sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 18px;
+
+      color: #8D8D8D;
+    }
+   }
+  }
+  .list{
+    width: 1074px;
+  }
+}
+
+
+.list-customer{
+ position: relative;
+ right: 20px;
+  ul{
+    list-style: none;
+      li{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+       .client{
+        font-family: sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: #000000;
+        cursor: pointer;
+      }
+      .count{
+        display: flex;
+        justify-content: center;
+        background: #FFFFFF;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25), inset -2px -2px 6px #F2F2F2, inset 2px 2px 6px #F2F2F2;
+        border-radius: 5px;
+        width: 26px;
+        height: 20px;
+        .number{
+          font-family: 'Jost';
+          font-size: 12px;
+          line-height: 12px;
+          margin-top:5px;
+          text-align: center;
+          color: #002C61;
+        }
+      }
+    }
+  }
+}
+
+.btnMore{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.resalta{
+  color :red;
+}
+
+.noresalta{
+  color: green;
+}

@@ -1,0 +1,37 @@
+<div class="formContainer">
+  <form (keydown.enter)="$event.preventDefault()" [formGroup]="registerForm">
+    <div class="form">
+      <div class="row">
+        <div>
+          <p>Name</p>
+          <input type="text" formControlName="name" class="title" placeholder="Name..." />
+        </div>
+        <div>
+          <p>Last Name</p>
+          <input type="text" formControlName="lastname" class="title" placeholder="Lastname" />
+        </div>
+      </div>
+      <div class="row">
+        <div>
+          <p>Subjects</p>
+          <select name="name" id="name" formControlName="subject_id" [ngModel]="(nameCienteId$ | async)">
+           <option  *ngFor = "let customer of getClient$ |async"
+            value={{customer.id}}>{{customer.data().name}} </option>
+          </select>
+        </div>
+        <div>
+          <p>Note</p>
+          <input type="text" formControlName="note" class="title" placeholder="nota" />
+        </div>
+      </div>
+      <div>
+        <p>Notes</p>
+        <textarea formControlName="description"  rows="4" cols="20"></textarea>
+      </div>
+    
+    </div>
+    <button type="submit" [disabled]="registerForm.invalid" (click)="getRegisterForm($event)">Save</button>
+  </form>
+</div>
+
+

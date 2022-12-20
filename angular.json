@@ -1,12 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": "157b8ff1-8049-4f65-bbad-d0fa991e0243"
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "wowAngular": {
+    "alumnos": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/wow-angular",
+            "outputPath": "dist/alumnos",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -76,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "wowAngular:build:production"
+              "browserTarget": "alumnos:build:production"
             },
             "development": {
-              "browserTarget": "wowAngular:build:development"
+              "browserTarget": "alumnos:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "wowAngular:build"
+            "browserTarget": "alumnos:build"
           }
         },
         "test": {
@@ -112,5 +109,7 @@
       }
     }
   },
-  "defaultProject": "wowAngular"
+  "cli": {
+    "analytics": "d9c8c1ff-8cb9-49af-95d8-648d6a3ffc37"
+  }
 }
