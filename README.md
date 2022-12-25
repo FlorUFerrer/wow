@@ -10,7 +10,11 @@
 
 
 
-##Servicios 
-
+##Servicios
 >> RUTA: app/services
->> RUTA: 
+
+##Observable y RXJS
+>> RUTA: src\app\views\pages\list\list.component.ts
+
+##Async pipe
+>> Ruta: src\app\views\pages\list\list.component.html
