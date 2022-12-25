@@ -1,0 +1,98 @@
+*{
+  margin:0px;
+}
+
+.mat-cell {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: rgba(0, 0, 30, 0.8);
+  }
+
+.mat-header-cell{
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #8D8D8D;
+}
+  .mat-row .mat-cell {
+     cursor: pointer;
+  }
+
+  .mat-row:hover .mat-cell {
+    background:  rgba(0, 178, 223, 0.05);
+  }
+
+.size{
+  box-shadow: 0px 4px 4px rgba(1, 52, 113, 0.25);
+  border-radius: 10px;
+
+}
+table {
+    background: #F2F2F2;
+    width: 100%;
+    height: 100%;
+}
+
+.vpn{
+width: 15px;
+height: 15px;
+background-color: rgb(0, 255, 47);
+border-radius: 100%;
+}
+.notvpn{
+  width: 15px;
+  height: 15px;
+  background-color: red;
+  border-radius: 100%;
+}
+
+.enabled{
+  color: green;
+}
+
+.disabled{
+  color: red;
+}
+
+.note-edit-on{
+  display: flex;
+  justify-content: center;
+  background-color: rgb(9, 9, 102);
+  border-radius: 100%;
+  height: 17px;
+  width: 17px;
+  align-items: flex-start;
+}
+.note-edit-off{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(124, 120, 120);
+  border-radius: 100%;
+  height: 17px;
+  width: 17px;
+}
+
+.description{
+  border: 1px solid #000000;
+  background-color: white;
+  position: relative;
+  right:-40px;
+  top:-25px;
+}
+
+
+td, th {
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+
+.container-description{
+  display: flex;
+  justify-content: center;
+}
