@@ -36,8 +36,15 @@ import * as firebase from 'firebase/app';
 import { AngularFirestore, USE_EMULATOR as USE_FIRESTORE_EMULATOR } from '@angular/fire/compat/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { FirestoreService } from './services/firestore.service';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Auth } from '@angular/fire/auth';
+
+
 import { EditTableComponent } from './views/pages/edit-table/edit-table.component';
 import { TargetDescriptionComponent } from './views/commons/target-description/target-description.component';
+import { LoginComponent } from './views/pages/login/login.component';
+import { LayoutComponent } from './views/pages/layout/layout.component';
+import { AuthGuard } from './views/commons/login.guard';
 
 firebase.initializeApp(environment.firebase);
 
@@ -58,6 +65,8 @@ firebase.initializeApp(environment.firebase);
     FormCustomerComponent,
     EditTableComponent,
     TargetDescriptionComponent,
+    LoginComponent,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +85,8 @@ firebase.initializeApp(environment.firebase);
   ],
   providers: [
     AngularFirestore,
+    AuthGuard,
+    AngularFireAuth,
     FirestoreService,
     {
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
