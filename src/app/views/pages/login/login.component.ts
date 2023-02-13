@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { getAuth, signInWithPopup, GoogleAuthProvider} from "firebase/auth";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Auth } from '@angular/fire/auth';
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+ 
   constructor(public afAuth: AngularFireAuth ,
     public router: Router) {  }
 
@@ -22,14 +23,9 @@ export class LoginComponent implements OnInit {
   await  this.afAuth.signInWithPopup(new GoogleAuthProvider());
     this.router.navigate(['alumnos']);
   }
-  
-  signOut(){
-    this.afAuth.signOut();
-    this.router.navigate(['']);
-  }
-  
 
   ngOnInit(): void {
+      
   }
 
 }

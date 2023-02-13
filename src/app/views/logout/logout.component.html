@@ -1,0 +1,9 @@
+<div class="logout">
+    <div *ngIf="(afAuth.authState |async) ">
+        <p style="color:white;">{{userName|async}}</p>
+    </div>
+    <div class="logout-google-btn"  *ngIf="(afAuth.authState |async) " (click)="signOut()">
+        <img src="../../../assets/media/icons/cerrarSesion.png" alt="">
+    </div>
+    
+</div>

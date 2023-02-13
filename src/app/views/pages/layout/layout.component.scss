@@ -1,19 +1,37 @@
 .fondo{
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-}
-
-.principal{
-position: absolute;
-top: 110px;
-left: 480px;
-z-index: 10;
-    h1{
-        color:rgb(233,105,23);
-        font-family: 'Courier New', Courier, monospace;
-        font-weight: 700;
-        font-size: 250%;
-        
+  height: 90vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  //background-image: url(../../../../assets/media/product/layout.webp);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  .login{
+        display: flex;
+        flex-direction: column;
+        margin-top: 90px;
+        height: 100px;
+        width: 200px;
     }
 }
+
+.user{
+    border-radius: 100%;
+    width:200px; 
+    height:200px;
+}
+
+.Userlogin{
+    height: 90vh;
+    background-color: rgba(89, 129, 84, 0.925);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+}
+
+.sesionOpen{
+    text-align: center;
+    color:rgb(222, 238, 238);
+    
+    
+}
+

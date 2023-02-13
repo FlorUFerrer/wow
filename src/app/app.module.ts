@@ -29,6 +29,9 @@ import {
   MatFormFieldModule,
   MAT_FORM_FIELD_DEFAULT_OPTIONS,
 } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+
 import { environment } from 'src/environments/environment';
 
 //Firestore emulator
@@ -45,6 +48,9 @@ import { TargetDescriptionComponent } from './views/commons/target-description/t
 import { LoginComponent } from './views/pages/login/login.component';
 import { LayoutComponent } from './views/pages/layout/layout.component';
 import { AuthGuard } from './views/commons/login.guard';
+import { LogoutComponent } from './views/logout/logout.component';
+import { RegistrerComponent } from './views/commons/registrer/registrer.component';
+import { RegistrerUserComponent } from './views/pages/registrer-user/registrer-user.component';
 
 firebase.initializeApp(environment.firebase);
 
@@ -67,6 +73,9 @@ firebase.initializeApp(environment.firebase);
     TargetDescriptionComponent,
     LoginComponent,
     LayoutComponent,
+    LogoutComponent,
+    RegistrerComponent,
+    RegistrerUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,6 +90,8 @@ firebase.initializeApp(environment.firebase);
     BrowserAnimationsModule,
     MatDialogModule,
     MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [
