@@ -9,15 +9,10 @@ import { Subjetcs } from 'src/app/models/subjects.model';
 export class SearchPipe implements PipeTransform {
   transform(list: [], name: string): any {
 
-    console.log(name);
-    
     if (!list) return list;
-
-    return console.log(name);
-    
-    // return list.filter((customer: any) =>
-    //   customer.name.toUpperCase().includes(name.toUpperCase())
-    // );
+       return list.filter((customer: any) =>
+      customer.name.toUpperCase().includes(name.toUpperCase())
+    );
 
   }
 }

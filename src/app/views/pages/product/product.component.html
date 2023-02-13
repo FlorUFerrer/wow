@@ -24,10 +24,10 @@
       <div class="lupe-box">
         <img class="lupe" src="./../../../../assets/media/product/Lupa.svg" alt="">
       </div>
-      <input class="search" placeholder="Not found- Maintenance" [formControl]="search">
+      <input class="search" placeholder="search subject" [formControl]="search">
     </div>
     <div class="list-customer" >
-      <ul  *ngFor="let customer of (getClient$| async) ">
+      <ul  *ngFor="let customer of (getClient$| async) | search:FilterCostumer ">
         <li class="item" >
           <div>
             <div class="client" (click)="filterCustomer(customer.id)" >

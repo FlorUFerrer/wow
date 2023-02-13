@@ -50,7 +50,7 @@ import { LayoutComponent } from './views/pages/layout/layout.component';
 import { AuthGuard } from './views/commons/login.guard';
 import { LogoutComponent } from './views/logout/logout.component';
 import { RegistrerComponent } from './views/commons/registrer/registrer.component';
-import { RegistrerUserComponent } from './views/pages/registrer-user/registrer-user.component';
+import { AdminUserComponent } from './views/pages/admin-user/admin-user.component';
 
 firebase.initializeApp(environment.firebase);
 
@@ -75,7 +75,7 @@ firebase.initializeApp(environment.firebase);
     LayoutComponent,
     LogoutComponent,
     RegistrerComponent,
-    RegistrerUserComponent,
+    AdminUserComponent,
   ],
   imports: [
     BrowserModule,

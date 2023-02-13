@@ -1,0 +1,13 @@
+<form (keydown.enter)="$event.preventDefault()" [formGroup]="adminForm">
+    <div>
+        <p>User</p>
+        <input [ngModel]="name" type="text" formControlName="name"  placeholder="User..." />
+    </div>
+    <div>
+        <p>Password</p>
+        <input [ngModel]="password" type="text" formControlName="password" placeholder="password..." />
+    </div>    
+     
+    <button type="submit" [disabled]="adminForm.invalid" (click)="adminLogin($event)">Update</button>
+</form>
+

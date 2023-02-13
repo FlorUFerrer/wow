@@ -11,7 +11,7 @@ export class FirestoreService {
   clients :Observable<any[]>;
   data :Observable<any[]>;
   name :Observable<any>;
-
+  admin :Observable<any>;
 
   constructor(private firestoreService: AngularFirestore) {}
 
@@ -44,7 +44,6 @@ export class FirestoreService {
       note: registerForm.note,
     })
     .catch((error)=>{
-      //Hacer modal de error
         console.log("mensaje de error", error);
      });
 
@@ -63,9 +62,14 @@ export class FirestoreService {
       note: registerForm.note,
       })
       .catch((error)=>{
-        //Hacer modal de error
-          console.log("mensaje de error", error);
+         console.log("mensaje de error", error);
       });
 
   }
+
+  getDataUser() {
+    this.admin = this.firestoreService.collection('admin').snapshotChanges();
+      return this.admin
+    }
+ 
 }

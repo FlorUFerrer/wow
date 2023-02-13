@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
+import { FirestoreService } from 'src/app/services/firestore.service';
 
 @Component({
   selector: 'app-layout',
@@ -11,7 +12,7 @@ import { map, Observable } from 'rxjs';
 export class LayoutComponent implements OnInit {
   userName: Observable<any>;
   userPhoto: Observable<any>;
-login :boolean =true;
+  login :boolean =true;
 
   constructor(public afAuth: AngularFireAuth ,
     public router: Router) {  }

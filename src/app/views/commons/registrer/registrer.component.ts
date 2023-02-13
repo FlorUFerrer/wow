@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { RegistrerUserComponent } from '../../pages/registrer-user/registrer-user.component';
+import { AdminUserComponent } from '../../pages/admin-user/admin-user.component';
 
 @Component({
   selector: 'app-registrer',
@@ -16,9 +16,9 @@ export class RegistrerComponent implements OnInit {
     public afAuth: AngularFireAuth ,
     public router: Router
   ) { }
-  
+
   registrerUser(){
-    this.dialog.open(RegistrerUserComponent); 
+    this.dialog.open(AdminUserComponent); 
     
   }
   ngOnInit(): void {
