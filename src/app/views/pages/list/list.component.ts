@@ -3,15 +3,19 @@ import {
   Component,
   Input,
   ViewChild,
+  ViewRef,
 } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { map, Observable } from 'rxjs';
+import { select, Store } from '@ngrx/store';
+import { map, Observable ,Subscription } from 'rxjs';
 import { Student } from 'src/app/models/students.model';
 import { FirestoreService } from 'src/app/services/firestore.service';
+import {  StudentsLoading } from 'src/app/store/_actions/alumnos.actions';
+import {   selectIsLoading, selectStudentsData } from 'src/app/store/_selectors/students.selectors';
 import { EditTableComponent } from '../edit-table/edit-table.component';
 
 
@@ -23,9 +27,10 @@ import { EditTableComponent } from '../edit-table/edit-table.component';
 export class ListComponent implements AfterViewInit {
   @Input() filterClient: string;
   @Input() gatewaysList: any[] = [];
-  //@Output() formProduct$: Observable<any>;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   enabled: boolean = false;
+ 
+
   displayedColumns: string[] = [
     'name',
     'lastname',
@@ -48,12 +53,18 @@ export class ListComponent implements AfterViewInit {
   getClient$: Observable<any>;
   dataSource: any;
   nameClient: any;
-  text: boolean = false;
+  text: boolean ;
+  studentLoadingSubcription :Subscription;
+  spinner : boolean=false;
+  loading$ : Observable<boolean>;
+  student$ : Observable<any>;
 
   constructor(
     private cdref: ChangeDetectorRef,
     public firestoreService: FirestoreService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private store : Store,
+
   ) {}
 
   getPagination(value: any) {
@@ -83,15 +94,7 @@ export class ListComponent implements AfterViewInit {
   }
 
 
-  getData() {
-    this.getClient$ = this.firestoreService
-      .getNamesClients()
-      .pipe(
-        map((names: any[]) => names.map((name: any) => name.payload.doc.data()))
-      );
-  }
-
-  getDataClients() {
+ getDataClients() {
     this.getDataClient$ = this.firestoreService.getDataClients().pipe(
       map((students: Student[]) =>
       students
@@ -105,9 +108,11 @@ export class ListComponent implements AfterViewInit {
           })
       )
     );
-    this.getDataClient$.subscribe((writeTable) =>
-      this.getPagination(writeTable)
-    );
+   this.getDataClient$.subscribe((writeTable) =>
+    
+     this.getPagination(writeTable)
+   );
+ 
   }
 
  getClientName(subject_id: string): Observable<string> {
@@ -118,14 +123,24 @@ export class ListComponent implements AfterViewInit {
     );
   }
 
+ applyChanges() {
+    if (this.cdref && !(this.cdref as ViewRef).destroyed) {
+      this.cdref.detectChanges();
+    }
+  }
 
   ngAfterViewInit() {
     this.cdref.detectChanges();
   }
 
   ngOnInit() {
+    this.loading$ = this.store.pipe(select(selectIsLoading));
+    this.store.dispatch(StudentsLoading());
     this.getDataClients();
+    this.student$ = this.store.select(selectStudentsData)
   }
 
-  ngOnDestroy() {}
+
 }
+
+

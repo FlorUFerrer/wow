@@ -2,7 +2,7 @@
   <form (keydown.enter)="$event.preventDefault()" [formGroup]="registerForm">
     <div class="form">
       <div class="row">
-        <div>
+        <div class="name">
           <p>Name</p>
            <input [ngModel]="name" type="text" formControlName="name" class="title" placeholder="Name..." />
         </div>
@@ -27,7 +27,7 @@
       <div class="check">
         <div>
           <p>Note</p>
-            <input type="string" formControlName="note" class="title" [ngModel]="note" />
+            <input  type="number" size="1" formControlName="note" class="title" [ngModel]="note" />
         </div>
       </div>
     </div>

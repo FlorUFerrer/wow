@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
+
 //Component
 import { NavbarComponent } from './views/pages/navbar/navbar.component';
 import { FooterComponent } from './views/pages/footer/footer.component';
@@ -40,7 +40,7 @@ import { AngularFirestore, USE_EMULATOR as USE_FIRESTORE_EMULATOR } from '@angul
 import { AngularFireModule } from '@angular/fire/compat';
 import { FirestoreService } from './services/firestore.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { Auth } from '@angular/fire/auth';
+
 
 
 import { EditTableComponent } from './views/pages/edit-table/edit-table.component';
@@ -49,12 +49,22 @@ import { LoginComponent } from './views/pages/login/login.component';
 import { LayoutComponent } from './views/pages/layout/layout.component';
 import { AuthGuard } from './views/commons/login.guard';
 import { LogoutComponent } from './views/logout/logout.component';
-import { RegistrerComponent } from './views/commons/registrer/registrer.component';
-import { AdminUserComponent } from './views/pages/admin-user/admin-user.component';
+
+
+
+//STORE
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import * as studentReducer  from './store/_reducers/reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { EstudentsEffects } from './store/_effects/students.effects';
+
+
+
 
 firebase.initializeApp(environment.firebase);
 
-//firebase.default.initializeApp(environment.firebase);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -74,8 +84,8 @@ firebase.initializeApp(environment.firebase);
     LoginComponent,
     LayoutComponent,
     LogoutComponent,
-    RegistrerComponent,
-    AdminUserComponent,
+
+    
   ],
   imports: [
     BrowserModule,
@@ -93,6 +103,10 @@ firebase.initializeApp(environment.firebase);
     MatInputModule,
     MatIconModule,
     AngularFireModule.initializeApp(environment.firebase),
+    StoreModule.forRoot( studentReducer.reducer ),
+    StoreDevtoolsModule.instrument({ }),
+    EffectsModule.forRoot([EstudentsEffects]),
+   
   ],
   providers: [
     AngularFirestore,

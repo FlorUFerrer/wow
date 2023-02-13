@@ -3,13 +3,20 @@
   height: 300px;
   justify-content: center;
   display: flex;
+  padding: 30px;
+  background: linear-gradient(271.22deg, #0E3B8B -2.82%, rgba(0, 215, 255, 0.88) 122.31%, rgba(0, 215, 255, 0.88) 122.31%), #FFFFFF;
 }
 
 .form{
   display: flex;
   flex-direction: column;
   gap: 15px;
-
+  p {
+    color:black;
+    font-size: larger;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+  }
   .row{
     display: flex;
     flex-direction: row;
@@ -26,4 +33,8 @@
     flex-direction: row;
     align-items: flex-start;
   }
+}
+
+input[type="number"].title {
+  width: 40px;
 }

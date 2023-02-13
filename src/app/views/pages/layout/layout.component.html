@@ -1,17 +1,18 @@
 <div [ngClass]=" {'fondo' : !(afAuth.authState |async) , 'Userlogin' :(afAuth.authState |async)}">
-    <div class="login">
+  <div class="login">
         <div *ngIf=" (afAuth.authState |async)" >
             <img  class="user" src='{{userPhoto|async}}'
                  alt=""
                  onerror="this.src='../../../../assets/media/icons/openSesion.png';">
-            <div class="sesionOpen">
-                <h1 > Your sesion is open</h1>
-                <h3>{{userName|async}}</h3>
+                 <div class="sesionOpen">
+                     <h1 > Your sesion is open</h1>
+                     <h3>{{userName|async}}</h3>
             </div>
         </div>
         <div  *ngIf=" !(afAuth.authState |async) ">
             <img src="../../../../assets/media/product/user.png" alt="" height="200px" width="200px">
         </div>
         <app-login></app-login>
+
      </div>
-</div>
+ </div>

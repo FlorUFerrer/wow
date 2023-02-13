@@ -10,15 +10,6 @@ export class Student{
   subject_name: Observable<string>
 }
 
-// export class Gateway{
-//   id: string;
-//   broker:string;
-//   client_id: string;
-//   description: string;
-//   enabled: boolean;
-//   name: string;
-//   password: string;
-//   type: string;
-//   vpn: boolean;
-//   client_name: Observable<string>
-// }
+export class ExtendedStudent  extends Student {
+  loading : boolean;
+}

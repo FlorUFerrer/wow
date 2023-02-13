@@ -21,14 +21,13 @@
         </div>
         <div>
           <p>Note</p>
-          <input type="text" formControlName="note" class="title" placeholder="nota" />
+          <input type="number" formControlName="note" size="1"  class="title" placeholder="nota" />
         </div>
       </div>
       <div>
         <p>Notes</p>
         <textarea formControlName="description"  rows="4" cols="20"></textarea>
       </div>
-    
     </div>
     <button type="submit" [disabled]="registerForm.invalid" (click)="getRegisterForm($event)">Save</button>
   </form>

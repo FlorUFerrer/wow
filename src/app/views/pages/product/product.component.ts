@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { debounceTime, map, Observable } from 'rxjs';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { Student } from 'src/app/models/students.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -26,7 +27,8 @@ export class ProductComponent implements OnInit {
   search = new FormControl('');
 
   constructor(
-     public firestoreService: FirestoreService
+     public firestoreService: FirestoreService,
+     private router: Router
   ) {}
 
   getData() {
@@ -111,16 +113,11 @@ export class ProductComponent implements OnInit {
 
   productAssigned(){
     this.assigned$ =this.firestoreService.getDataClients().pipe(
-      map((gateways: Student[]) => {
-        let clientFilter = gateways
-        .map((gateway: any) =>( {
-          ...gateway.payload.doc.data() ,
-          id : gateway.payload.doc.id,
-        }))
-        .filter ( id =>  id.enabled === true)
-        return clientFilter.length
-      }
-      ));
+       map((subjects: Student[]) => {
+          return subjects.length
+          }
+        )
+      );
   }
 
   productNotAssigned(){
